@@ -51,7 +51,7 @@ Our hyperparameters of choice were the kernel size (20, 20, 10, 25), 256 bins in
 ### Multidimensional photoemission spectroscopy
 
 Multidimensional photoemission spectroscopy is a technique to map the electronic band structure in a 4D space consisting
-of two momentum (k<sub>x</sub>, k<sub>y</sub>), an energy (E), and a time (t) coordinate. In the raw data, the excited
+of two momentum (k<sub>x</sub>, k<sub>y</sub>), an energy (E), and a pump-probe time delay (t<sub>pp</sub>) coordinate. In the raw data, the excited
 state (E > 0) is not visible. 4D CLAHE makes is visible while enhancing local features in the other states but preserving
 the temporal intensity changes.
 
