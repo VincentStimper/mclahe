@@ -2,7 +2,35 @@
 
 ## Introduction
 
+Multidimensional Contrast Limited Adaptive Histogram Equalization (MCLAHE) is a multidimensional extension of the
+contrast enhancement procedure CLAHE for images. It can be applied to datasets with an arbitrary number of dimensions.
+It is implemented in Tensorflow. Hence, it can be run on multiple CPUs or other hardware accelerators such as GPUs.
 
+
+## Installation
+
+You can install `mclahe` directly using pip:
+```
+pip install --upgrade git+https://github.com/VincentStimper/mclahe.git
+```
+Alternatively, you can first download or clone the repository on your computer via
+```
+git clone https://github.com/VincentStimper/mclahe.git
+```
+then navigate into the folder and install it via
+```
+pip install --upgrade .
+```
+or 
+```
+python setup.py install
+```
+
+### Requirements
+
+The main package requires `numpy` and `tensorflow`. `tensorflow` needs to be installed manually depending on the hardware
+in use. A comprehensive installation guide is given at the [Tensorflow webpage](https://www.tensorflow.org/install).
+For the sample notebook, `matplotlib` is required as well. 
 
 ## Sample datasets
 
