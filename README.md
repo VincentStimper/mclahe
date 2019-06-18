@@ -43,7 +43,7 @@ preprocessed it by a median filter with kernel size (2, 2, 2, 1) in the (x, y, z
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![MCLAHE applied to fluorescence microscopy data](https://github.com/VincentStimper/mclahe/blob/master/images/demo_fm.gif "MCLAHE applied to fluorescence microscopy data")
 
-The above image show a slice along the z-axis through the data. The unit hpf means hours hours post fertilization. Our
+The above image show a slice along the z-axis through the data. The unit hpf means hours post fertilization. Our
 hyperparameters of choice were the kernel size (20, 20, 10, 25), 256 bins in the histogram, and a clipping limit of
 0.25. We used a global histogram range
 
