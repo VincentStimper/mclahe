@@ -4,7 +4,9 @@
 import numpy as np
 from .utils import *
 
-def clahe(x, kernel_size=None, n_bins=128, clip_limit=0.01, adaptive_hist_range=False, use_gpu=True):
+from itertools import product
+
+def mclahe(x, kernel_size=None, n_bins=128, clip_limit=0.01, adaptive_hist_range=False, use_gpu=True):
     """
     Contrast limited adaptive histogram equalization implemented in tensorflow
     :param x: numpy array to which clahe is applied
