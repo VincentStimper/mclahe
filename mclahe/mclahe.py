@@ -185,7 +185,7 @@ def mclahe(x, kernel_size=None, n_bins=128, clip_limit=0.01, adaptive_hist_range
                 sess.run(tf_update_res)
 
             # Rescaling
-            #sess.run(tf_rescale)
+            sess.run(tf_rescale)
 
             # Get result
             result = sess.run(tf_res_cropped)
