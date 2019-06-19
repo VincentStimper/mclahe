@@ -98,7 +98,8 @@ If you are using this package within your own projects, please cite it as
 Bibtex code
 ```
 @ARTICLE{2019arXiv190607709B,
-         author = {Stimper, Vincent and Bauer, Stefan and Ernstorfer, Ralph and Sch{\"o}lkop, Bernhard and Xian, R. Patrick},
+         author = {Stimper, Vincent and Bauer, Stefan and Ernstorfer, Ralph
+         and Sch{\"o}lkop, Bernhard and Xian, R. Patrick},
          title = {Multidimensional Contrast Limited Adaptive Histogram Equalization},
          journal = {arXiv},
          year = {2019},
