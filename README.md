@@ -32,6 +32,7 @@ The main package requires `numpy` and `tensorflow`. `tensorflow` needs to be ins
 in use. A comprehensive installation guide is given at the [Tensorflow webpage](https://www.tensorflow.org/install).
 For the sample notebook, `matplotlib` is required as well. 
 
+
 ## Sample datasets
 
 ### Fluorescence microscopy
@@ -59,3 +60,27 @@ the temporal intensity changes.
 
 Here, we used a kernel size of (30, 30, 15, 20) in (k<sub>x</sub>, k<sub>y</sub>, E, t<sub>pp</sub>) space, 256 histogram bins, and
 a clipping limit of 0.02. We made use of the adaptive histogram range for processing this dataset.
+
+
+## Documentation
+
+```python
+def mclahe(x, kernel_size=None, n_bins=128, clip_limit=0.01, adaptive_hist_range=False, use_gpu=True):
+    ...
+```
+
+### Parameters
+
+* `x`: Input data as a numpy array with a arbitrary number of dimensions
+* `kernel_size`: Tuple, list, or numpy array specifying the kernel size along the data dimensions. If `kernel_size=None`,
+the kernel size is set to 1/8 of the data size along each dimension. This is a typical choice for photographs. For more
+complex dataset, the kernel size should be roughly of the size of the features which shall be enhanced by MCLAHE.
+* `n_bins`: Integer specifying the number of histogram bins used within each kernel. Typically, it is set to a power of
+two like 128 or 256 but any number could be chosen.
+* `clip_limit`: Float being the share of voxels within a kernel at which the histogram shall be clipped. A clipping
+limit of 1 corresponds to standard histogram equalization and if it is smaller than 1 the contrast enhancement is
+limited. Since a relative histogram height of `1/n_bins` corresponds to a uniform distribution the clipping limit should
+be higher than that.
+* `adaptive_hist_range`: flag saying whether an adaptive histogram range (AHR) shall be used or not. With AHR, each
+histogram uses its own range determined by the minimum and maximum intensity in the kernel. Otherwise, the range is set
+by the global minimum and maximum within the data.
