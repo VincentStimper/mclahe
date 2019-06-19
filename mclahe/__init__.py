@@ -4,4 +4,4 @@
 from . import utils
 from .mclahe import *
 
-__version__ = '1.0'
+__version__ = 'v1.0'
