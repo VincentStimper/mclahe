@@ -84,3 +84,6 @@ be higher than that.
 * `adaptive_hist_range`: flag saying whether an adaptive histogram range (AHR) shall be used or not. With AHR, each
 histogram uses its own range determined by the minimum and maximum intensity in the kernel. Otherwise, the range is set
 by the global minimum and maximum within the data.
+* `use_gpu`: flag specifying whether a GPU shall be used for computations if available. If there is no GPU available,
+this flag has no influence. If the dataset is very large it might be necessary to use CPUs only to not run out of memory
+on the GPU.
