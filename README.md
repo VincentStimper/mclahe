@@ -87,3 +87,20 @@ by the global minimum and maximum within the data.
 * `use_gpu`: flag specifying whether a GPU shall be used for computations if available. If there is no GPU available,
 this flag has no influence. If the dataset is very large it might be necessary to use CPUs only to not run out of memory
 on the GPU.
+
+
+## Citation
+
+If you are using this package within your own projects, please cite it as
+> Vincent Stimper, Stefan Bauer, Ralph Ernstorfer, Bernhard Schölkopf, and R. Patrick Xian: Multidimensional Contrast
+> Limited Adaptive Histogram Equalization, arXiv: XXXX.XXXXXX, 2019.
+
+Bibtex code
+```
+@ARTICLE{2019arXiv190607709B,
+         author = {Stimper, Vincent and Bauer, Stefan and Ernstorfer, Ralph and Sch{\"o}lkop, Bernhard and Xian, R. Patrick},
+         title = {Multidimensional Contrast Limited Adaptive Histogram Equalization},
+         journal = {arXiv},
+         year = {2019},
+}
+```
