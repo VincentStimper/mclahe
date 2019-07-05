@@ -97,11 +97,11 @@ If you are using this package within your own projects, please cite it as
 
 Bibtex code
 ```
-@ARTICLE{arXiv190611355,
-         author = {Stimper, Vincent and Bauer, Stefan and Ernstorfer, Ralph
-         and Sch{\"o}lkop, Bernhard and Xian, R. Patrick},
-         title = {Multidimensional Contrast Limited Adaptive Histogram Equalization},
-         journal = {arXiv: 1906.11355},
-         year = {2019},
+@Misc{Stimper2019,
+  author = {Stimper, Vincent and Bauer, Stefan and Ernstorfer, Ralph
+            and Sch{\"o}lkop, Bernhard and Xian, R. Patrick},
+  title  = {Multidimensional Contrast Limited Adaptive Histogram Equalization},
+  year   = {2019},
+  eprint = {arXiv:1906.11355},
 }
 ```
