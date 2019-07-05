@@ -102,6 +102,6 @@ Bibtex code
             and Sch{\"o}lkop, Bernhard and Xian, R. Patrick},
   title  = {Multidimensional Contrast Limited Adaptive Histogram Equalization},
   year   = {2019},
-  eprint = {arXiv:1906.11355},
+  eprint = {arXiv: 1906.11355},
 }
 ```
