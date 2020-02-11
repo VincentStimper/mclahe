@@ -29,7 +29,7 @@ python setup.py install
 ### Requirements
 
 The main package requires `numpy` and `tensorflow`. `tensorflow` needs to be installed manually depending on the hardware
-in use. A comprehensive installation guide is given at the [Tensorflow webpage](https://www.tensorflow.org/install).
+in use. Currently, the package only supports `tensorflow` 1.14, but a update to 2.0 is work in progress. A comprehensive installation guide is given at the [Tensorflow webpage](https://www.tensorflow.org/install).
 For the sample notebook, `matplotlib` is required as well. 
 
 
