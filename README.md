@@ -92,16 +92,17 @@ on the GPU.
 ## Citation
 
 If you are using this package within your own projects, please cite it as
-> Vincent Stimper, Stefan Bauer, Ralph Ernstorfer, Bernhard Schölkopf, and R. Patrick Xian: Multidimensional Contrast
-> Limited Adaptive Histogram Equalization, arXiv: 1906.11355, 2019.
+> V. Stimper, S. Bauer, R. Ernstorfer, B. Schölkopf and R. P. Xian, "Multidimensional Contrast Limited Adaptive Histogram Equalization," in IEEE Access, vol. 7, pp. 165437-165447, 2019.
 
 Bibtex code
 ```
-@Misc{Stimper2019,
-  author = {Stimper, Vincent and Bauer, Stefan and Ernstorfer, Ralph
-            and Sch{\"o}lkop, Bernhard and Xian, R. Patrick},
-  title  = {Multidimensional Contrast Limited Adaptive Histogram Equalization},
-  year   = {2019},
-  eprint = {arXiv: 1906.11355},
+@article{Stimper2019,
+    author={V. {Stimper} and S. {Bauer} and R. {Ernstorfer} and B. {Schölkopf} and R. P. {Xian}},
+    journal={IEEE Access},
+    title={Multidimensional Contrast Limited Adaptive Histogram Equalization},
+    year={2019},
+    volume={7}, 
+    pages={165437-165447},
+    doi={10.1109/ACCESS.2019.2952899},
 }
 ```
