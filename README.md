@@ -9,8 +9,6 @@ It is implemented in Tensorflow. Hence, it can be run on multiple CPUs or other 
 
 ## Installation
 
-## Installation
-
 The latest version of the package can be installed via pip
 
 ```
