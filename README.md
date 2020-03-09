@@ -9,19 +9,16 @@ It is implemented in Tensorflow. Hence, it can be run on multiple CPUs or other 
 
 ## Installation
 
-You can install `mclahe` directly using pip:
+## Installation
+
+The latest version of the package can be installed via pip
+
 ```
 pip install --upgrade git+https://github.com/VincentStimper/mclahe.git
 ```
-Alternatively, you can first download or clone the repository on your computer via
-```
-git clone https://github.com/VincentStimper/mclahe.git
-```
-then navigate into the folder and install it via
-```
-pip install --upgrade .
-```
-or 
+
+Alternatively, download the repository and run
+
 ```
 python setup.py install
 ```
