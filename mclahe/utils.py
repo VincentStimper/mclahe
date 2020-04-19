@@ -50,7 +50,7 @@ def batch_gather(params, indices, axis):
     return result
 
 
-def batch_histogram(values, value_range, axis, nbins=100, use_map=True):
+def batch_histogram(values, value_range, axis, nbins=100, use_map=False):
     """
     Computes histogram with fixed width considering batch dimensions
     :param values: Array containing the values for histogram computation.
