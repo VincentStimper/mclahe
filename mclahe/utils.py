@@ -4,6 +4,8 @@
 import numpy as np
 
 
+slice_ind = slice
+
 def slice(input, begin, size):
     """
     Slice an array using a iterable start and length vector
@@ -13,7 +15,7 @@ def slice(input, begin, size):
     :return: Sliced array
     """
 
-    slices = tuple(slice(b, b + s) for b, s in zip(begin, size))
+    slices = tuple(slice_ind(b, b + s) for b, s in zip(begin, size))
     return input[slices]
 
 
