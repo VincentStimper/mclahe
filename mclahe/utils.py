@@ -43,6 +43,7 @@ def batch_gather(params, indices, axis):
     indices_shape = indices.shape
     params_shape = params.shape
     ndim = indices.ndim
+    indices_internal = indices.copy()
 
     # Adapt indices to act on respective batch
     accum_dim_value = 1
@@ -52,10 +53,10 @@ def batch_gather(params, indices, axis):
         dim_indices = np.arange(dim_value)
         dim_indices *= accum_dim_value
         dim_shape = [1] * (dim - 1) + [dim_value] + [1] * (ndim - dim)
-        indices += dim_indices.reshape(*dim_shape)
+        indices_internal += dim_indices.reshape(*dim_shape)
 
     flat_inner_shape_indices = np.prod(indices_shape[:(axis + 1)])
-    flat_indices = indices.reshape(*((flat_inner_shape_indices,) + indices_shape[(axis + 1):]))
+    flat_indices = indices_internal.reshape(*((flat_inner_shape_indices,) + indices_shape[(axis + 1):]))
     outer_shape = params_shape[(axis + 1):]
     flat_inner_shape_params = np.prod(params_shape[:(axis + 1)])
 
