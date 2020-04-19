@@ -50,44 +50,41 @@ def batch_gather(params, indices, axis):
     return result
 
 
-def tf_batch_histogram(values, value_range, axis, nbins=100, dtype=tf.int32, use_map=True):
+def batch_histogram(values, value_range, axis, nbins=100, use_map=True):
     """
     Computes histogram with fixed width considering batch dimensions
-    :param values: Numeric `Tensor` containing the values for histogram computation.
-    :param value_range: Shape [2] `Tensor` of same `dtype` as `values`. values <= value_range[0] will be mapped to
+    :param values: Array containing the values for histogram computation.
+    :param value_range: Shape [2] iterable. values <= value_range[0] will be mapped to
     hist[0], values >= value_range[1] will be mapped to hist[-1].
     :param axis: Number of batch dimensions. First axis to apply histogram computation to.
-    :param nbins: Scalar `int32 Tensor`. Number of histogram bins.
-    :param dtype: dtype for returned histogram, can be either tf.int32 or tf.int64.
+    :param nbins: Scalar. Number of histogram bins.
+    :param use_map: Flag indicating whether map function is used
     :return: histogram with batch dimensions.
     """
 
     # Get shape
-    values_shape = tf.shape(values)
+    values_shape = values.shape
     batch_dim = values_shape[:axis]
-    rest_dim = values_shape[axis:]
-    num_batch = tf.reduce_prod(batch_dim)
+    outer_dim = values_shape[axis:]
+    num_batch = np.prod(batch_dim)
 
     if use_map:
-        values_reshaped = tf.reshape(values, tf.concat([[num_batch], rest_dim], 0))
-        hist = tf.map_fn(lambda x: tf.histogram_fixed_width(x, value_range, nbins=nbins, dtype=dtype), values_reshaped,
-                         dtype=dtype, parallel_iterations=64)
+        values_reshaped = values.reshape(*((num_batch,) + outer_dim))
+        hist = np.array(list(map(lambda x: np.histogram(x, range=value_range, bins=nbins)[0], values_reshaped)))
     else:
         # Normalize
-        values_float = tf.cast(values, tf.float32)
-        value_range_float = tf.cast(value_range, tf.float32)
+        values_double = values.astype('double')
+        value_range_double = np.array(value_range).astype('double')
 
         # Clip values
-        values_norm = (values_float - value_range_float[0]) / (value_range_float[1] - value_range_float[0])
-        values_clip1 = tf.maximum(values_norm, 0.5 / tf.cast(nbins, tf.float32))
-        values_clip2 = tf.minimum(values_clip1, 1.0 - 0.5 / tf.cast(nbins, tf.float32))
+        values_norm = (values_double - value_range_double[0]) / (value_range_double[1] - value_range_double[0])
+        values_clip1 = np.maximum(values_norm, 0.5 / nbins)
+        values_clip2 = np.minimum(values_clip1, 1.0 - 0.5 / nbins)
 
         # Shift values
-        values_shift = values_clip2 + tf.reshape(tf.range(tf.cast(num_batch, tf.float32), dtype=tf.float32),
-                                                 tf.concat([batch_dim, tf.ones(tf.size(rest_dim), tf.int32)], 0))
+        values_shift = values_clip2 + np.arange(num_batch).reshape(*(batch_dim + len(outer_dim) * (1,)))
 
         # Get histogram
-        hist = tf.histogram_fixed_width(values_shift, [0., tf.cast(num_batch, tf.float32)], nbins=num_batch * nbins,
-                                        dtype=dtype)
+        hist = np.histogram(values_shift, range=[0, num_batch], bins=num_batch * nbins)[0]
 
-    return tf.reshape(hist, tf.concat([batch_dim, [nbins]], 0))
+    return hist.reshape(*(batch_dim + (nbins,)))
