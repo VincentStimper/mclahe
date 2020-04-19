@@ -4,6 +4,19 @@
 import numpy as np
 
 
+def slice(input, begin, size):
+    """
+    Slice an array using a iterable start and length vector
+    :param input: Input array to be sliced
+    :param begin: Vector of indices where to start slicing
+    :param size: Vector of slice lengths
+    :return: Sliced array
+    """
+
+    slices = tuple(slice(b, b + s) for b, s in zip(begin, size))
+    return input[slices]
+
+
 def batch_gather(params, indices, axis):
     """
     Gather slices from `params` according to `indices` with leading batch dims.
