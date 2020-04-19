@@ -106,7 +106,7 @@ def mclahe(x, kernel_size=None, n_bins=128, clip_limit=0.01, adaptive_hist_range
                 coeff = 0.5 / kernel_size[axis] + coeff
             if ind_map[axis] == 0:
                 coeff = 1. - coeff
-            new_shape = [1] * ([dim] + axis) + [kernel_size[axis]] + [1] * (dim - 1 - axis)
+            new_shape = [1] * (dim + axis) + [kernel_size[axis]] + [1] * (dim - 1 - axis)
             coeff = np.reshape(coeff, new_shape)
             res_sub = coeff * res_sub
 
