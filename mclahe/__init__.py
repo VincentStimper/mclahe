@@ -2,6 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from . import utils
-from .mclahe import *
+from .core import *
 
 __version__ = 'v1.0'
