@@ -4,28 +4,30 @@
 
 Multidimensional Contrast Limited Adaptive Histogram Equalization (MCLAHE) is a multidimensional extension of the
 contrast enhancement procedure CLAHE for images. It can be applied to datasets with an arbitrary number of dimensions.
-It is implemented in Tensorflow. Hence, it can be run on multiple CPUs or other hardware accelerators such as GPUs.
+This repository comprises an implementation in Tensorflow and one in NumPy only. Both can be run on multiple CPUs, and
+the Tensorflow implementation works with other hardware accelerators such as GPUs as well.
 
 
 ## Installation
 
-The latest version of the package can be installed via pip
+The Tensorflow implementation of the package can be installed via pip
 
 ```
-pip install --upgrade git+https://github.com/VincentStimper/mclahe.git
+pip install --upgrade https://github.com/VincentStimper/mclahe/archive/master.zip
 ```
 
-Alternatively, download the repository and run
+To install the NumPy version, run
 
 ```
-python setup.py install
+pip install --upgrade https://github.com/VincentStimper/mclahe/archive/numpy.zip
 ```
 
 ### Requirements
 
-The main package requires `numpy` and `tensorflow`. `tensorflow` needs to be installed manually depending on the hardware
-in use. Currently, the package only supports `tensorflow` 1.14, but a update to 2.0 is work in progress. A comprehensive installation guide is given at the [Tensorflow webpage](https://www.tensorflow.org/install).
-For the sample notebook, `matplotlib` is required as well. 
+The main package requires `numpy` and `tensorflow`. `tensorflow` needs to be installed manually depending on the
+hardware in use. Currently, the package only supports `tensorflow` 1.14, but a update to 2.0 is work in progress.
+A comprehensive installation guide is given at the [Tensorflow webpage](https://www.tensorflow.org/install).
+For the NumPy version, only `numpy` needs to be installed. The example notebook requires `matplotlib` in addition. 
 
 
 ## Sample datasets
