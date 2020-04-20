@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
+import tensorflow as tf
 from .utils import *
 
 from itertools import product
