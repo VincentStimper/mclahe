@@ -40,7 +40,7 @@ def mclahe(x, kernel_size=None, n_bins=128, clip_limit=0.01, adaptive_hist_range
     x_hist_padded = np.pad(x, padding_hist, 'symmetric')
 
     # Set up tf graph
-    with tf.variable_scope("clahe") as scope:
+    with tf.compat.v1.variable_scope("clahe") as scope:
         tf_x_hist_padded_init = tf.placeholder(tf.float32, shape=x_hist_padded.shape)
         tf_x_hist_padded = tf.Variable(tf_x_hist_padded_init)
         tf_x_padded = tf.slice(tf_x_hist_padded, kernel_size // 2, x_shape + padding_x_length)
